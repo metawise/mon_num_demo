@@ -95,6 +95,11 @@
         const latinFound = document.querySelector(`#${id}:checked`)
         return !!latinFound
     }
+    
+    function numberWithCommas(x) {
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+    
     function onChange() {
         const element = document.getElementById('input')
         const suffix = document.getElementById('suffix')
@@ -130,6 +135,9 @@
             }
         }
         const value = toWords(parseInt(element.value), options)
+        element.addEventListener('keyup', function(e) {
+          this.value = numberWithCommas(e.value);
+        });
         const textElem = document.getElementById('text')
         if (textElem) [
             textElem.innerHTML = value
