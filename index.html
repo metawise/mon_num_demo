@@ -136,7 +136,7 @@
         }
         const value = toWords(parseInt(element.value), options)
         element.addEventListener('keyup', function(e) {
-            console.log(e);
+            console.log(e.target.value);
 //           this.value = numberWithCommas(e.value);
         });
         const textElem = document.getElementById('text')
